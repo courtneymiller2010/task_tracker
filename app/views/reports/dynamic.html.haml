@@ -1,0 +1,11 @@
+%legend Dynamic Report
+
+= form_tag date_range_reports_path, remote: true do |f|
+  = select_date Date.today, prefix: 'reports[start_date]'
+  = select_date Date.today, prefix: 'reports[end_date]'
+  
+  = submit_tag 'Submit'
+
+%br
+%br
+#results

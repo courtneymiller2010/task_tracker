@@ -3,4 +3,4 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
-  $( "#task_date" ).datepicker();
+  #$( "#task_date" ).datepicker();

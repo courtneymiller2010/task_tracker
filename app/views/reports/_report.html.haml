@@ -1,0 +1,25 @@
+- total_hours = @tasks.map(&:completed_hours).inject(0, :+)
+
+%legend 
+  = @date
+  %small= pluralize(total_hours, "hour")
+  .pull-right
+    = link_to icon('plus') + " Add Task", new_task_path, class: 'btn btn-success btn-xs'
+
+- @projects.each do |project, tasks|
+  .panel.panel-info
+    .panel-heading
+      %h3.panel-title
+        = project
+        %small
+          - project_hours = tasks.map(&:completed_hours).inject(0, :+)
+          = pluralize(project_hours, "hour")
+    .panel-body
+      - tasks.each do |task|
+        %p
+          %b.pull-left Task: #{task.name} (#{task.completed_hours})
+          .pull-right
+            =link_to icon('pencil') + " Edit", edit_task_path(task), class: 'btn btn-info btn-xs'
+        %br
+        %p Status: #{task.status}
+        %p= task.description

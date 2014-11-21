@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'dashboard#index'
+  root 'reports#today'
   
   resources :statuses
 
@@ -8,6 +8,16 @@ Rails.application.routes.draw do
   resources :deliverables
 
   resources :projects
+  
+  resources :reports do
+    collection do
+      get :today
+      get :this_week
+      get :this_month
+      get :dynamic
+      post :date_range
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

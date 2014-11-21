@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 %html
   %head
-  %title Workspace
+  %title Task Tracker
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
@@ -15,26 +15,24 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand{href: "#"} Project name
+        %a.navbar-brand{href: "#"} Task Tracker
       .navbar-collapse.collapse{id: "navbar"}
         %ul.nav.navbar-nav
           %li.active
-            %a{href: "#"} Home
+            %a{href: root_path} Today's Dashboard
           %li
-            %a{href: "#about"} About
-          %li
-            %a{href: "#contact"} Contact
+            %a{href: tasks_path} Tasks
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-              Dropdown
+              System
               %span.caret
             %ul.dropdown-menu{role: "menu"}
               %li
-                %a{href: "#"} Action
+                %a{href: projects_path} Projects
               %li
-                %a{href: "#"} Another action
+                %a{href: deliverables_path} Deliverables
               %li
-                %a{href: "#"} Something else here
+                %a{href: statuses_path} Statuses
               %li.divider
               %li.dropdown-header Nav header
               %li

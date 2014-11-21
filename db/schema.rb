@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20141121081455) do
 
   create_table "tasks", force: true do |t|
     t.string   "name"
-    t.float    "date"
+    t.datetime "date"
     t.float    "completed_hours"
     t.integer  "deliverable_id"
     t.integer  "project_id"
