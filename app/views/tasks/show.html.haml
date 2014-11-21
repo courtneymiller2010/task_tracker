@@ -1,0 +1,14 @@
+%ol.breadcrumb
+  %li
+    %a{href: tasks_path} Tasks
+  %li.active View Task #{@task.name}
+= link_to icon('pencil') + " Edit", edit_task_path(@task), class: 'btn btn-info'
+
+%p#notice= notice
+
+= detail_row 'Date', @task.date
+= detail_row 'Project', @task.project.try(:name)
+= detail_row 'Deliverable', @task.deliverable.try(:name)
+= detail_row 'Task', @task.name
+= detail_row 'Hours', @task.completed_hours
+= detail_row 'Description', @task.description

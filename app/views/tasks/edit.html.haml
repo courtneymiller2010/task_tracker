@@ -1,0 +1,6 @@
+%ol.breadcrumb
+  %li
+    %a{href: tasks_path} Tasks
+  %li.active Edit Task #{@task.name}
+
+= render 'form', fieldset_name: "Edit Task #{@task.name}"

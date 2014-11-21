@@ -1,0 +1,18 @@
+%h1
+  Deliverables
+  = link_to 'Add New', new_deliverable_path, class: 'btn btn-success'
+
+%table.table.table-condensed.table-bordered.table-striped.table-hover
+  %tr
+    %th
+    %th Name
+    %th Project
+
+  - @deliverables.each do |deliverable|
+    %tr
+      %td
+        = link_to icon('search'), deliverable
+        = link_to icon('pencil'), edit_deliverable_path(deliverable)
+        = link_to icon('trash'), deliverable, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= deliverable.name
+      %td= deliverable.project.try(:name)

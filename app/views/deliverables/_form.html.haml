@@ -1,0 +1,18 @@
+= simple_form_for @deliverable, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+  - if @deliverable.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@deliverable.errors.count, "error")} prohibited this deliverable from being saved:"
+      %ul
+        - @deliverable.errors.full_messages.each do |msg|
+          %li= msg
+  
+  %legend= fieldset_name
+  
+  %fieldset
+    = f.input :name
+    = f.input :project_id, collection: Project.all
+
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit 'Save', class: 'btn btn-success'
+      = link_to 'Cancel', :back, class: 'btn'

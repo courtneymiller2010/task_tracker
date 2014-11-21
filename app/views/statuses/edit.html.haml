@@ -1,0 +1,6 @@
+%ol.breadcrumb
+  %li
+    %a{href: statuses_path} Statuses
+  %li.active Edit Status #{@status.name}
+
+= render 'form', fieldset_name: "Edit Status #{@status.name}"

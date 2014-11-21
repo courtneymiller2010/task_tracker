@@ -1,0 +1,9 @@
+%ol.breadcrumb
+  %li
+    %a{href: projects_path} Projects
+  %li.active View Project #{@project.name}
+= link_to icon('pencil') + " Edit", project_path(@project), class: 'btn btn-info'
+
+%p#notice= notice
+
+= detail_row 'Name', @project.name

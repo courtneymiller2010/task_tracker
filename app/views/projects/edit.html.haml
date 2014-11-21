@@ -1,0 +1,6 @@
+%ol.breadcrumb
+  %li
+    %a{href: projects_path} Projects
+  %li.active Edit Project #{@project.name}
+
+= render 'form', fieldset_name: "Edit Project #{@project.name}"

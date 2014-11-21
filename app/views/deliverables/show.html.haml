@@ -1,0 +1,10 @@
+%ol.breadcrumb
+  %li
+    %a{href: deliverables_path} Deliverables
+  %li.active View Deliverable #{@deliverable.name}
+= link_to icon('pencil') + " Edit", deliverable_path(@deliverable), class: 'btn btn-info'
+
+%p#notice= notice
+
+= detail_row 'Name', @deliverable.name
+= detail_row 'Project', @deliverable.project.try(:name)

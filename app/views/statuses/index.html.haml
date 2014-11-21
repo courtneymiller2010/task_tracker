@@ -1,0 +1,16 @@
+%h1
+  Statuses
+  = link_to 'Add New', new_status_path, class: 'btn btn-success'
+
+%table.table.table-condensed.table-bordered.table-striped.table-hover
+  %tr
+    %th
+    %th Name
+
+  - @statuses.each do |status|
+    %tr
+      %td
+        = link_to icon('search'), status
+        = link_to icon('pencil'), edit_status_path(status)
+        = link_to icon('trash'), status, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= status.name

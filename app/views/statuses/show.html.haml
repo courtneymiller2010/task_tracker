@@ -1,0 +1,9 @@
+%ol.breadcrumb
+  %li
+    %a{href: statuses_path} Statuses
+  %li.active View Status #{@status.name}
+= link_to icon('pencil') + " Edit", status_path(@status), class: 'btn btn-info'
+
+%p#notice= notice
+
+= detail_row 'Name', @status.name

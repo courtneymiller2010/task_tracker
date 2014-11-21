@@ -1,0 +1,24 @@
+%h1
+  Tasks
+  = link_to 'Add New', new_task_path, class: 'btn btn-success'
+
+%table.table.table-condensed.table-bordered.table-striped.table-hover
+  %tr
+    %th
+    %th Date
+    %th Project
+    %th Deliverable
+    %th Task
+    %th Hours
+
+  - @tasks.each do |task|
+    %tr
+      %td
+        = link_to icon('search'), task
+        = link_to icon('pencil'), edit_task_path(task)
+        = link_to icon('trash'), task, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= task.date
+      %td= task.project.try(:name)
+      %td= task.deliverable.try(:name)
+      %td= task.name
+      %td= task.completed_hours

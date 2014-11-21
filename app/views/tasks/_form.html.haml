@@ -1,0 +1,23 @@
+= simple_form_for @task, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+  - if @task.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+      %ul
+        - @task.errors.full_messages.each do |msg|
+          %li= msg
+  
+  %legend= fieldset_name
+  
+  %fieldset
+    = f.input :date
+    = f.input :project_id, collection: Project.all
+    = f.input :deliverable_id, collection: Deliverable.all
+    = f.input :name, label: 'Task'
+    = f.input :completed_hours
+    = f.input :description
+    
+
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit 'Save', class: 'btn btn-success'
+      = link_to 'Cancel', :back, class: 'btn'

@@ -1,0 +1,6 @@
+%ol.breadcrumb
+  %li
+    %a{href: deliverables_path} Deliverables
+  %li.active Edit Deliverable #{@deliverable.name}
+
+= render 'form', fieldset_name: "Edit Deliverable #{@deliverable.name}"
